@@ -2,7 +2,7 @@
 
 Short cinematográfico de **9 segundos**, vertical 9:16. Animación 3D fotorrealista lista para **YouTube Shorts** y **TikTok**.
 
-**Player:** https://inodeman.github.io/mas-valioso/
+**Repo:** https://github.com/inodeman/mas-valioso
 
 **Descarga el MP4 (release):** https://github.com/inodeman/mas-valioso/releases/tag/v1.0.0
 
@@ -26,6 +26,14 @@ El video es el mismo corte (9.00s, 720×1280, texto quemado). Cambia el caption 
 2. TikTok → **+** → subir (no recortes).
 3. Pega el texto de `copy/tiktok.txt`.
 4. Publica. El texto ya va en el video; no hace falta sticker extra.
+
+## Player en GitHub Pages
+
+Si quieres el player en `https://inodeman.github.io/mas-valioso/`:
+
+1. Repo **Settings → Pages**
+2. Source: **GitHub Actions**
+3. Re-run the *Deploy GitHub Pages* workflow
 
 ## Arco
 
