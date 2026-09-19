@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Más Valioso — 9 segundos</title>
+    <title>Operación Palomitas + Más Valioso</title>
     <meta
       name="description"
-      content="Short 3D de 9 segundos listo para YouTube Shorts y TikTok. Tu vida vale más que todo el dinero del mundo."
+      content="Shorts 3D listos para YouTube y TikTok: Operación Palomitas (10s) y Más Valioso (9s)."
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,10 +52,26 @@
         color: var(--muted);
         font-weight: 500;
       }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        padding: 16px 24px 0;
+      }
+      .tabs button {
+        height: 40px;
+        padding: 0 14px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--elev);
+        color: var(--fg);
+        font: 500 0.875rem Outfit, sans-serif;
+        cursor: pointer;
+      }
+      .tabs button.active { background: var(--fg); color: var(--bg); border-color: transparent; }
       main {
         max-width: 1080px;
         margin: 0 auto;
-        padding: 32px 20px 64px;
+        padding: 24px 20px 64px;
         display: grid;
         gap: 40px;
       }
@@ -110,14 +126,71 @@
       }
       .plat { margin-bottom: 24px; }
       .plat h3 { font-size: 0.875rem; font-weight: 500; margin: 0 0 8px; }
+      [data-panel] { display: none; }
+      [data-panel].on { display: contents; }
     </style>
   </head>
   <body>
     <header>
-      <h1>Más Valioso</h1>
-      <p class="kicker">9 segundos</p>
+      <h1 id="brand">Operación Palomitas</h1>
+      <p class="kicker" id="kicker">10 segundos</p>
     </header>
-    <main>
+    <div class="tabs">
+      <button type="button" class="active" data-tab="palomitas">Palomitas</button>
+      <button type="button" data-tab="valioso">Más Valioso</button>
+    </div>
+
+    <main data-panel="palomitas" class="on">
+      <div class="phone">
+        <video
+          src="video/play-palomitas.mp4"
+          poster="video/poster-palomitas.jpg"
+          controls
+          playsinline
+          muted
+          loop
+          autoplay
+        ></video>
+      </div>
+      <section class="copy">
+        <h2>Un costal de maíz. Un volcán. Un mar de palomitas.</h2>
+        <p>
+          Mini película 3D de 10.00s, 9:16. Los soldados vuelcan el saco a 50 metros
+          sobre la lava. El maíz explota y el mar sube hasta el helicóptero.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/inodeman/mas-valioso/releases/download/v2.0.0/palomitas-youtube-shorts.mp4">YouTube MP4</a>
+          <a class="btn primary" href="https://github.com/inodeman/mas-valioso/releases/download/v2.0.0/palomitas-tiktok.mp4">TikTok MP4</a>
+          <a class="btn" href="https://github.com/inodeman/mas-valioso">Repo en GitHub</a>
+        </div>
+        <div class="plat">
+          <h3>YouTube Shorts — título + descripción</h3>
+          <pre id="yt-p">Soldados tiran un costal de maíz a un volcán (termina mal para el helicóptero)
+
+Soldados tiran un costal de maíz a un volcán.
+
+50 metros más abajo, la lava lo convierte en un mar de palomitas.
+
+Y el mar sube. Hasta el helicóptero.
+
+#shorts #palomitas #volcan #viral #3d #cine #helicoptero</pre>
+          <button class="btn" type="button" data-copy="yt-p">Copiar YouTube</button>
+        </div>
+        <div class="plat">
+          <h3>TikTok — caption</h3>
+          <pre id="tt-p">Soldados tiran un costal de maíz a un volcán.
+
+La lava lo convierte en un mar de palomitas.
+
+Y sube. Hasta el helicóptero.
+
+#fyp #foryou #palomitas #volcan #viral #3d #mexico #shorts</pre>
+          <button class="btn" type="button" data-copy="tt-p">Copiar TikTok</button>
+        </div>
+      </section>
+    </main>
+
+    <main data-panel="valioso">
       <div class="phone">
         <video
           src="video/play.mp4"
@@ -126,7 +199,6 @@
           playsinline
           muted
           loop
-          autoplay
         ></video>
       </div>
       <section class="copy">
@@ -172,17 +244,35 @@ Da gracias a Dios.
         </div>
       </section>
     </main>
+
     <script>
+      const titles = {
+        palomitas: ["Operación Palomitas", "10 segundos"],
+        valioso: ["Más Valioso", "9 segundos"],
+      };
+      document.querySelectorAll("[data-tab]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const tab = btn.getAttribute("data-tab");
+          document.querySelectorAll("[data-tab]").forEach((b) => b.classList.toggle("active", b === btn));
+          document.querySelectorAll("[data-panel]").forEach((p) => {
+            p.classList.toggle("on", p.getAttribute("data-panel") === tab);
+          });
+          document.getElementById("brand").textContent = titles[tab][0];
+          document.getElementById("kicker").textContent = titles[tab][1];
+          document.querySelectorAll("video").forEach((v) => v.pause());
+          const on = document.querySelector("[data-panel].on video");
+          if (on) on.play().catch(() => {});
+        });
+      });
       document.querySelectorAll("[data-copy]").forEach((btn) => {
         btn.addEventListener("click", async () => {
           const id = btn.getAttribute("data-copy");
           const text = document.getElementById(id).innerText;
           try {
             await navigator.clipboard.writeText(text);
+            const prev = btn.textContent;
             btn.textContent = "Copiado";
-            setTimeout(() => {
-              btn.textContent = id === "yt" ? "Copiar YouTube" : "Copiar TikTok";
-            }, 1600);
+            setTimeout(() => { btn.textContent = prev; }, 1600);
           } catch (_) {}
         });
       });
