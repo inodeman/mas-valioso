@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Más Valioso — 9 segundos</title>
+    <meta
+      name="description"
+      content="Short 3D de 9 segundos listo para YouTube Shorts y TikTok. Tu vida vale más que todo el dinero del mundo."
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0b;
+        --elev: #121214;
+        --fg: #f3eee6;
+        --muted: #a39e96;
+        --line: rgba(243, 238, 230, 0.12);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Outfit, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--line);
+      }
+      h1 {
+        font-family: Fraunces, Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        margin: 0;
+      }
+      .kicker {
+        font-size: 0.75rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      main {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 20px 64px;
+        display: grid;
+        gap: 40px;
+      }
+      @media (min-width: 840px) {
+        main { grid-template-columns: minmax(0, 380px) 1fr; align-items: start; }
+      }
+      .phone {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--elev);
+        border: 1px solid var(--line);
+      }
+      video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+      .copy h2 {
+        font-family: Fraunces, Georgia, serif;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        font-size: clamp(1.4rem, 3vw, 1.85rem);
+        line-height: 1.2;
+        margin: 0 0 12px;
+      }
+      .copy p { color: var(--muted); line-height: 1.5; margin: 0 0 20px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+      a.btn, button.btn {
+        display: inline-flex;
+        align-items: center;
+        height: 44px;
+        padding: 0 16px;
+        border-radius: 8px;
+        font: 500 0.875rem Outfit, sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid var(--line);
+        background: var(--elev);
+        color: var(--fg);
+      }
+      a.btn.primary { background: var(--fg); color: var(--bg); border-color: transparent; }
+      pre {
+        white-space: pre-wrap;
+        background: var(--elev);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-family: Outfit, sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: var(--muted);
+        margin: 0 0 12px;
+      }
+      .plat { margin-bottom: 24px; }
+      .plat h3 { font-size: 0.875rem; font-weight: 500; margin: 0 0 8px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Más Valioso</h1>
+      <p class="kicker">9 segundos</p>
+    </header>
+    <main>
+      <div class="phone">
+        <video
+          src="video/play.mp4"
+          poster="video/poster.jpg"
+          controls
+          playsinline
+          muted
+          loop
+          autoplay
+        ></video>
+      </div>
+      <section class="copy">
+        <h2>En 3 segundos serás el más rico del mundo. ¿Listo?</h2>
+        <p>
+          Animación 3D fotorrealista, 9.00s, 9:16. El texto ya va quemado.
+          Descarga el MP4 y súbelo a YouTube Shorts o TikTok sin recortar.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/inodeman/mas-valioso/releases/download/v1.0.0/mas-valioso-youtube-shorts.mp4">YouTube MP4</a>
+          <a class="btn primary" href="https://github.com/inodeman/mas-valioso/releases/download/v1.0.0/mas-valioso-tiktok.mp4">TikTok MP4</a>
+          <a class="btn" href="https://github.com/inodeman/mas-valioso">Repo en GitHub</a>
+        </div>
+        <div class="plat">
+          <h3>YouTube Shorts — título + descripción</h3>
+          <pre id="yt">En 3 segundos serás el más rico del mundo (pero hay un precio)
+
+En 3 segundos serás el ser más rico del mundo. ¿Listo?
+
+Puedes tener todo el dinero del mundo hoy... pero solo tendrás hoy. Mañana tendrás que morir.
+
+Estoy seguro que no lo aceptarías. Tampoco yo.
+
+Tu vida vale más que todo el dinero del mundo.
+Da gracias a Dios. Tienes algo más valioso que todo el oro del planeta.
+
+#shorts #motivacion #vida #dinero #agradecimiento #dios #viral</pre>
+          <button class="btn" type="button" data-copy="yt">Copiar YouTube</button>
+        </div>
+        <div class="plat">
+          <h3>TikTok — caption</h3>
+          <pre id="tt">En 3 segundos serás el más rico del mundo. ¿Listo?
+
+Puedes tener TODO el dinero hoy… pero mañana mueres.
+
+No lo aceptarías. Tampoco yo.
+
+Tu vida vale más que todo el dinero del mundo.
+Da gracias a Dios.
+
+#fyp #foryou #motivacion #dios #vida #dinero #viral #agradecimiento #mexico #shorts</pre>
+          <button class="btn" type="button" data-copy="tt">Copiar TikTok</button>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.querySelectorAll("[data-copy]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-copy");
+          const text = document.getElementById(id).innerText;
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = "Copiado";
+            setTimeout(() => {
+              btn.textContent = id === "yt" ? "Copiar YouTube" : "Copiar TikTok";
+            }, 1600);
+          } catch (_) {}
+        });
+      });
+    </script>
+  </body>
+</html>
